@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for folder in folders %}
+        <a href="/viewfiles/{{ folder }}">{{ folder }}</a>
+        <br>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Загрузка файла</title>
+    </head>
+    <body>
+        {% if messange %}
+            <p>{{messange}}</p>
+        {% endif %}
+        <div class="mainblock">
+            <h1>Загрузите файл</h1>
+            <form action="" method=post enctype=multipart/form-data>
+                <input id="name" onblur="replacer()" type="text" name="name" placeholder="Имя" alt="Имя" />
+                <br>
+                <input id="surname" onblur="replacer()" type="text" name="surname" placeholder="Фамилия" alt="Фамилия" />
+                <br>
+                <input id="classroom" onblur="replacer()" type="text" name="classroom" placeholder="Класс и буква" alt="Класс и буква" />
+                <br>
+                <input type="number" name="task" min="1" max="10" placeholder="Номер задание">
+                <br>
+                <input type=file name=file placeholder="Выберите файл">
+                <br>
+                <input type=submit value=Upload>
+            </form>
+        </div>
+        <script>
+            function replacer(){
+                let name = document.getElementById("name");
+                name.value = name.value.replace(/\s/g, '');
+                let surname = document.getElementById("surname");
+                surname.value = surname.value.replace(/\s/g, '');
+                let classroom = document.getElementById("classroom");
+                classroom.value = classroom.value.replace(/\s/g, '');
+            }
+        </script>
+        <style>
+            body {
+                font: 12px Arial, sans-serif;
+            }
+            #dropZone {
+                color: #555;
+                font-size: 18px;
+                text-align: center;
+
+                width: 400px;
+                padding: 50px 0;
+                margin: 50px auto;
+
+                background: #eee;
+                border: 1px solid #ccc;
+
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+            }
+
+            #dropZone.hover {
+                background: #ddd;
+                border-color: #aaa;
+            }
+
+            #dropZone.error {
+                background: #faa;
+                border-color: #f00;
+            }
+
+            #dropZone.drop {
+                background: #afa;
+                border-color: #0f0;
+            }
+        </style>
+    </body>
+</html>
