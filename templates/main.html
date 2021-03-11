@@ -1,0 +1,47 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <form method="post" action="" enctype="multipart/form-data">
+            <div class="form">
+                <input type="text" placeholder="Фамилия" name="surname">
+                <input type="text" placeholder="Имя" name="name">
+                <select name="class-num">
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                </select>
+                <select name="class-letter">
+                    <option>А</option>
+                    <option>Б</option>
+                    <option>В</option>
+                    <option>Г</option>
+                    <option>Д</option>
+                    <option>Е</option>
+                </select>
+                <div class="add">Добавить задание</div>
+                <input type="hidden" name="quality" value="0" id="quality">
+                <button type="submit">Отправить</button>
+            </div>
+        </form>
+        <script>
+            var num = 1
+            var $add = document.getElementsByClassName('add')[0];
+            var $form = document.getElementsByClassName('form')[0];
+            $add.addEventListener('click', function(event) {
+                var $input = document.createElement('input');
+                $input.type = 'file';
+                $input.placeholder = `Задание ${num}`;
+                $input.name = `file${num}`
+                $input.classList.add('amount');
+                $form.insertBefore($input, $add);
+                document.getElementById("quality").value = num
+                num = num + 1
+            });
+        </script>
+    </body>
+</html>
